@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 
 struct song{
   char * name;
@@ -11,7 +12,8 @@ struct song{
 //insert songs at the front
 struct song * insert_front(struct song * start,
 						   char * artistname,
-						   char * songname) {
+						   char * songname) 
+{
 
 	struct song * p = malloc(sizeof(struct song));
 
