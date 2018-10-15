@@ -16,6 +16,16 @@ int tonum(char letter){
   }
   return 27;
 }
+int comp(char first[],char second[]){
+  int i = 0;
+  for(i = 0; i < 100;i++){
+    if(first[i] != second[i]){
+      return 0;
+    }
+  }
+  return 1;
+}
+
 /*
 //Add song nodes.
 struct song * add_song(struct song * table[27], struct song songnode){
@@ -40,38 +50,36 @@ struct song * search_artist(char artist[]){
 }
 */
 //Print out all the entries under a certain letter.
-void printletter(struct song * table[27], char letter[]){
-  struct song * tempnode = table[tonum(letter[0])];
-  int c = 0;
-  printf("no");
+void printletter(struct song * table[27], char letter){
+  struct song * tempnode = table[tonum(letter)];
   while(tempnode){
-    printf("%s,%s \n",tempnode -> name,tempnode -> artist);
+    printf("name: %s,song: %s \n",tempnode -> name,tempnode -> artist);
     tempnode = tempnode -> next;
-    c++;
   }
 }
 
-/*
 //Print out all the songs of a certain artist
-void printartistlibrary(char artist[]){
+void printartistlibrary(struct song * table[27], char artist[]){
   struct song * tempnode = table[tonum(artist[0])];
-  int c = 0;
-  find_artist(tempnode,artist);
+  tempnode = find_artist(tempnode,artist);
+  printf("%s \n", artist);
   while(tempnode){
-    char tempartist[] = tempnode -> artist;
+    char * tempartist = tempnode -> artist;
     if(comp(artist,tempartist)){
-      printf("%s,%s \n",tempnode -> name,tempnode ->artist);
+      printf("songs: %s \n",tempnode -> name);
     }
     tempnode = tempnode -> next;
-    c++;
   }
+
 }
-/*
+
+
 //Print out the entire library.
 void printlibrary(struct song * table[27]){
   int i = 0;
-  for(i = 0;i++;i<27){
-    printletter(table, table[i]);
+  char lower[] = "abcdefghijklmnopqrstuvwxyz";
+  for(i = 0;i < 27;i++){
+    printletter(table, lower[i]);
   }
 }
 /*
