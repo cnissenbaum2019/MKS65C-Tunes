@@ -1,14 +1,14 @@
-make: song.c song.h
-	gcc song.c
-	gcc song.h
+make: org.c org.h
+	gcc org.c
+	gcc org.h
 
-debug: song.c song.h
-	gcc -g song.c
-	gcc -g song.h
+debug: org.c org.h
+	gcc -g org.c
+	gcc -g org.h
 
-clean: a.out song.h.gch
+clean: a.out org.h.gch
 	rm a.out
-	rm song.h.gch
+	rm org.h.gch
 
 run: a.out
 	./a.out
