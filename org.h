@@ -16,6 +16,7 @@ int tonum(char letter){
   }
   return 27;
 }
+
 int comp(char first[],char second[]){
   int i = 0;
   for(i = 0; i < 100;i++){
@@ -26,7 +27,7 @@ int comp(char first[],char second[]){
   return 1;
 }
 
-/*
+
 //Add song nodes.
 struct song * add_song(struct song * table[27], struct song songnode){
   char *tempname = songnode.artist;
@@ -48,15 +49,20 @@ struct song * search_artist(char artist[]){
   struct song * tempnode = table[tonum(artist[0])];
   return find_artist(tempnode,artist);
 }
-*/
+
+
 //Print out all the entries under a certain letter.
 void printletter(struct song * table[27], char letter){
+  
   struct song * tempnode = table[tonum(letter)];
   while(tempnode){
-    printf("name: %s,song: %s \n",tempnode -> name,tempnode -> artist);
+    printf("song: %s |artist: %s \n",tempnode -> name,tempnode -> artist);
     tempnode = tempnode -> next;
   }
+
+  printf("no songs here");
 }
+
 
 //Print out all the songs of a certain artist
 void printartistlibrary(struct song * table[27], char artist[]){
@@ -70,15 +76,14 @@ void printartistlibrary(struct song * table[27], char artist[]){
     }
     tempnode = tempnode -> next;
   }
-
 }
-
 
 //Print out the entire library.
 void printlibrary(struct song * table[27]){
   int i = 0;
   char lower[] = "abcdefghijklmnopqrstuvwxyz";
   for(i = 0;i < 27;i++){
+    printf("%c \n",lower[i]);
     printletter(table, lower[i]);
   }
 }
@@ -86,26 +91,25 @@ void printlibrary(struct song * table[27]){
 //Shuffle - print out a series of randomly chosen songs.
 srand(time(0));
 void shuffle(struct song * table[27]){
-  struct song * shufflesong[5];
-  int i = 0;
-  for(i = 0;i < 5;i++){
-    struct song * randsong = random_song(table[rand()%27]);
-    shufflesong = insert_front(shufflesong,randsong -> artist ,randsong -> name);
-  }
-  printf("random: %s \n",shufflesong);
+struct song * shufflesong[5];
+int i = 0;
+for(i = 0;i < 5;i++){
+struct song * randsong = random_song(table[rand()%27]);
+shufflesong = insert_front(shufflesong,randsong -> artist ,randsong -> name);
+}
+printf("random: %s \n",shufflesong);
 }
 
 //Delete a song
 struct song * deletesong(struct song * table[27], struct song *s){
 
-
 }
 
 //Clear the library.
 void clearlib(struct song * table[27]){
-  int i = 0;
-  for(i = 0;i < 27; i++){
-    table[i] = free_song_list(table[i]);
-  }
+int i = 0;
+for(i = 0;i < 27; i++){
+table[i] = free_song_list(table[i]);
+}
 }
 */
