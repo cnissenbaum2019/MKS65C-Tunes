@@ -62,17 +62,28 @@ int main(){
   s3.artist = "adese";
   s3.name = "tho";
   struct song * newsongs = add_song(tabletest,s3);
-  printlibrary(tabletest);
+  struct song s5;
+  struct song s6;
+  s5.next = NULL;
+  s5.artist = "Bas";
+  s5.name = "Are";
+  struct song * newsongsbas = add_song(tabletest,s5);
+  s6.next = NULL;
+  s6.artist = "Bas";
+  s6.name = "You";
+  struct song * newsongsbas2 = add_song(tabletest,s6);
+  //printlibrary(tabletest);
 
   printf("-------------------------------\n");
-  //RETURNS ACTUAL POINTER
+  //RETURNS ACTUAL POINTER SO WORKS I GUESS
   printf("TEST SEARCH SONG\n");
   struct song * searchfor = search_song(tabletest,"me","Eat");
   printf("%s\n",searchfor);
 
   printf("-------------------------------\n");
-  //UNTESTED
+  //WORKS
   printf("TEST SEARCH ARTIST\n");
+  struct song * searchforA = search_artist(tabletest,"Bas");
 
   printf("-------------------------------\n");
   printf("TEST SHUFFLE\n");
@@ -83,7 +94,7 @@ int main(){
   //REPLACES INSTEAD OF DELETES
   printf("TEST DELETE SONG\n");
   struct song * onelesssong = deletesong(tabletest,s1);
-  printlibrary(tabletest);
+  //printlibrary(tabletest);
 
   printf("-------------------------------\n");
   //WORKS
