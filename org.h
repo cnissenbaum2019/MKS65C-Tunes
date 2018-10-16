@@ -97,18 +97,14 @@ struct song * search_artist(struct song * table[27], char artist[]){
   else{printf("artist not found\n");}
 }
 
-
-
 //Shuffle - print out a series of randomly chosen songs.
-
 void shuffle(struct song * table[27]){
-  struct song * shufflesong[5];
   int i = 0;
-  for(i = 0;i < 5;i++){
+  printf("no");
+  for(i = 0;i < 4;i++){
     struct song * randsong = random_song(table[rand()%27]);
-    shufflesong[i] = insert_front(shufflesong[i],randsong -> artist ,randsong -> name);
+    printf("%s : %s \n",randsong -> artist, randsong ->name);
   }
-  printf("random: %s \n",shufflesong);
 }
 
 //Delete a song
