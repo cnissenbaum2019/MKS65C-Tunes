@@ -12,6 +12,7 @@ int main(){
   struct song s3;
   struct song s4;
 
+
   tabletest[0] = &s0;
   s0.next = NULL;
   s0.artist = "Arm";
@@ -26,24 +27,15 @@ int main(){
   s2.next = NULL;
   s2.artist = "Cat";
   s2.name = "why";
-/*
-  tabletest[3] = &s3;
-  s3.next = NULL;
-  s3.artist = "dese";
-  s3.name = "tho";
-*/
+
   tabletest[4] = &s4;
   s4.next = NULL;
   s4.artist = "Eat";
   s4.name = "me";
 
-/*
-  s3.next = NULL;
-  s3.artist = "arch";
-  s3.name = "music rocks";
-  */
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //WORKS
   printf("TEST PRINTLETTER\n");
   printletter(tabletest,'A');
   printletter(tabletest,'B');
@@ -51,43 +43,54 @@ int main(){
   //printletter(tabletest,'D');
   printletter(tabletest,'E');
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //WORKS
   printf("TEST PRINT ARTIST LIBRARY\n");
   printartistlibrary(tabletest, "Arm");
   //printartistlibrary(tabletest, "dese");
   printartistlibrary(tabletest, "Eat");
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //DOES NOT PRINT NULL
   printf("TEST PRINT LIBRARY\n");
-//  printlibrary(tabletest);
+  //printlibrary(tabletest);
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //WORKS
   printf("TEST ADD SONG\n");
   s3.next = NULL;
   s3.artist = "adese";
   s3.name = "tho";
   struct song * newsongs = add_song(tabletest,s3);
-  //printlibrary(tabletest);
+  printlibrary(tabletest);
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //RETURNS ACTUAL POINTER
   printf("TEST SEARCH SONG\n");
   struct song * searchfor = search_song(tabletest,"me","Eat");
   printf("%s\n",searchfor);
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //UNTESTED
   printf("TEST SEARCH ARTIST\n");
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
   printf("TEST SHUFFLE\n");
+  srand(time(0));
+  //shuffle(tabletest);
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //REPLACES INSTEAD OF DELETES
   printf("TEST DELETE SONG\n");
+  struct song * onelesssong = deletesong(tabletest,s1);
+  printlibrary(tabletest);
 
-  printf("-------------\n");
+  printf("-------------------------------\n");
+  //WORKS
   printf("TEST CLEAR LIBRARY\n");
-
-
-  printf("-------------\n");
+  //clearlib(tabletest);
+  //printlibrary(tabletest);
+  printf("-------------------------------\n");
 
   return 0;
 }

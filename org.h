@@ -68,7 +68,7 @@ void printletter(struct song * table[27], char letter){
 void printartistlibrary(struct song * table[27], char artist[]){
   struct song * tempnode = table[tonum(artist[0])];
   tempnode = find_artist(tempnode,artist);
-  printf("%s \n", artist);
+  printf("%s list\n", artist);
   while(tempnode){
     char * tempartist = tempnode -> artist;
     if(comp(artist,tempartist)){
@@ -87,29 +87,33 @@ void printlibrary(struct song * table[27]){
     printletter(table, lower[i]);
   }
 }
-/*
+
 //Shuffle - print out a series of randomly chosen songs.
-srand(time(0));
+
 void shuffle(struct song * table[27]){
-struct song * shufflesong[5];
-int i = 0;
-for(i = 0;i < 5;i++){
-struct song * randsong = random_song(table[rand()%27]);
-shufflesong = insert_front(shufflesong,randsong -> artist ,randsong -> name);
-}
-printf("random: %s \n",shufflesong);
+  struct song * shufflesong[5];
+  int i = 0;
+  for(i = 0;i < 5;i++){
+    struct song * randsong = random_song(table[rand()%27]);
+    shufflesong[i] = insert_front(shufflesong[i],randsong -> artist ,randsong -> name);
+  }
+  printf("random: %s \n",shufflesong);
 }
 
 //Delete a song
-struct song * deletesong(struct song * table[27], struct song *s){
-
+struct song * deletesong(struct song * table[27], struct song songnode){
+  char *tempname = songnode.artist;
+  struct song * tempnode;
+  struct song * gonenode = &songnode;
+  tempnode = remove_song(tempnode, gonenode);
+  table[tonum(tempname[0])] = tempnode;
+  return table[tonum(tempname[0])];
 }
 
 //Clear the library.
 void clearlib(struct song * table[27]){
-int i = 0;
-for(i = 0;i < 27; i++){
-table[i] = free_song_list(table[i]);
+  int i = 0;
+  for(i = 0;i < 27; i++){
+    table[i] = free_song_list(table[i]);
+  }
 }
-}
-*/
