@@ -58,7 +58,9 @@ void printlibrary(struct song * table[27]){
   int i = 0;
   char lower[] = "abcdefghijklmnopqrstuvwxyz";
   for(i = 0;i < 27;i++){
+    if(table[i]){
     printletter(table, lower[i]);
+  }
   }
 }
 

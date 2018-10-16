@@ -53,7 +53,7 @@ int main(){
   printf("-------------------------------\n");
   //DOES NOT PRINT NULL
   printf("TEST PRINT LIBRARY\n");
-  //printlibrary(tabletest);
+  printlibrary(tabletest);
 
   printf("-------------------------------\n");
   //WORKS
