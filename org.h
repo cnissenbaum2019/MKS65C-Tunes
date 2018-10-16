@@ -53,14 +53,14 @@ struct song * search_artist(char artist[]){
 
 //Print out all the entries under a certain letter.
 void printletter(struct song * table[27], char letter){
-  
+
   struct song * tempnode = table[tonum(letter)];
   while(tempnode){
     printf("song: %s |artist: %s \n",tempnode -> name,tempnode -> artist);
     tempnode = tempnode -> next;
   }
 
-  printf("no songs here");
+  //printf("no songs here");
 }
 
 

@@ -43,21 +43,50 @@ int main(){
   s3.name = "music rocks";
   */
 
-
-  //tabletest[0] = add_song(tabletest,s3);
   printf("-------------\n");
+  printf("TEST PRINTLETTER\n");
   printletter(tabletest,'A');
   printletter(tabletest,'B');
   printletter(tabletest,'C');
-  printletter(tabletest,'D');
+  //printletter(tabletest,'D');
   printletter(tabletest,'E');
 
   printf("-------------\n");
+  printf("TEST PRINT ARTIST LIBRARY\n");
   printartistlibrary(tabletest, "Arm");
-  printartistlibrary(tabletest, "dese");
+  //printartistlibrary(tabletest, "dese");
   printartistlibrary(tabletest, "Eat");
+
   printf("-------------\n");
-  printlibrary(tabletest);
+  printf("TEST PRINT LIBRARY\n");
+//  printlibrary(tabletest);
+
+  printf("-------------\n");
+  printf("TEST ADD SONG\n");
+  s3.next = NULL;
+  s3.artist = "adese";
+  s3.name = "tho";
+  struct song * newsongs = add_song(tabletest,s3);
+  //printlibrary(tabletest);
+
+  printf("-------------\n");
+  printf("TEST SEARCH SONG\n");
+  struct song * searchfor = search_song(tabletest,"me","Eat");
+  printf("%s\n",searchfor);
+
+  printf("-------------\n");
+  printf("TEST SEARCH ARTIST\n");
+
+  printf("-------------\n");
+  printf("TEST SHUFFLE\n");
+
+  printf("-------------\n");
+  printf("TEST DELETE SONG\n");
+
+  printf("-------------\n");
+  printf("TEST CLEAR LIBRARY\n");
+
+
   printf("-------------\n");
 
   return 0;
