@@ -5,7 +5,7 @@
 #include "org.h"
 
 int main(){
-  struct song * tabletest[27];
+  struct song * * tabletest = create_library();
   struct song s0;
   struct song s1;
   struct song s2;
@@ -40,18 +40,18 @@ int main(){
   printletter(tabletest,'A');
   printletter(tabletest,'B');
   printletter(tabletest,'C');
-  //printletter(tabletest,'D');
+  printletter(tabletest,'D');
   printletter(tabletest,'E');
 
   printf("-------------------------------\n");
   //WORKS
   printf("TEST PRINT ARTIST LIBRARY\n");
   printartistlibrary(tabletest, "Astro");
-  //printartistlibrary(tabletest, "dese");
+  printartistlibrary(tabletest, "dese");
   printartistlibrary(tabletest, "Eat");
 
   printf("-------------------------------\n");
-  //DOES NOT PRINT NULL
+  //WORKS
   printf("TEST PRINT LIBRARY\n");
   printlibrary(tabletest);
 
@@ -72,7 +72,7 @@ int main(){
   s6.artist = "Bas";
   s6.name = "You";
   struct song * newsongsbas2 = add_song(tabletest,s6);
-  //printlibrary(tabletest);
+  printlibrary(tabletest);
 
   printf("-------------------------------\n");
   //RETURNS ACTUAL POINTER SO WORKS I GUESS
@@ -89,19 +89,20 @@ int main(){
   //WOKS WHEN SMALL SAMPLE SIZE
   printf("TEST SHUFFLE\n");
   srand(time(0));
-  //shuffle(tabletest);
+  shuffle(tabletest);
 
   printf("-------------------------------\n");
   //REPLACES INSTEAD OF DELETES
   printf("TEST DELETE SONG\n");
   printletter(tabletest,'a');
-  struct song * onelesssong = deletesong(tabletest,"tho");
+  //struct song * onelesssong = deletesong(tabletest,"tho");
   printletter(tabletest,'a');
 
   printf("-------------------------------\n");
-  //WORKS
+  //WORKS JK LOL
   printf("TEST CLEAR LIBRARY\n");
-  //clearlib(tabletest);
+  //printlibrary(tabletest);
+  ///clearlib(tabletest);
   //printlibrary(tabletest);
 
   printf("--------------------------------------------\n");

@@ -12,7 +12,7 @@ struct song{
 //insert songs at the front
 struct song * insert_front(struct song * start,
 						   char * artistname,
-						   char * songname) 
+						   char * songname)
 {
 
 	struct song * p = malloc(sizeof(struct song));
@@ -58,7 +58,7 @@ struct song * insert_in_order(struct song * s,
 	struct song * b;
 
 	while (compare_song(p,s) > 0) {
-		
+
 		if (!s->next) {
 			s->next = p;
 			return start;
@@ -78,13 +78,15 @@ struct song * insert_in_order(struct song * s,
 
 //print the entire list
 void print_song_list(struct song * s) {
-
-	printf("[");
-	while (s) {
-		printf("(%s: %s), ", s->artist, s->name );
-		s = s->next;
-	}
-	printf("]\n");
+  if(s) {
+    char * tempartist = s -> artist;
+	   printf("%c list\n",tempartist[0]);
+	    while (s) {
+		      printf("%s: %s |", s->artist, s->name );
+		      s = s->next;
+	    }
+	    printf("\n");
+  }
 
 }
 
@@ -135,7 +137,7 @@ struct song * random_song(struct song * s) {
 
 //remove a single specified song from the list
 struct song * remove_song(struct song * s, struct song * gone) {
-	
+
 	if (s == gone) {
 		struct song * placeholder = s->next;
 		free(s);
