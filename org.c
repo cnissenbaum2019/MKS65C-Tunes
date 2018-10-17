@@ -86,16 +86,16 @@ int main(){
   struct song * searchforA = search_artist(tabletest,"Bas");
 
   printf("-------------------------------\n");
-  //WOKS WHEN SMALL SAMPLE SIZE
+  //NAH
   printf("TEST SHUFFLE\n");
   srand(time(0));
   shuffle(tabletest);
 
   printf("-------------------------------\n");
-  //REPLACES INSTEAD OF DELETES
+  //NAH
   printf("TEST DELETE SONG\n");
   printletter(tabletest,'a');
-  //struct song * onelesssong = deletesong(tabletest,"tho");
+  //tabletest = deletesong(tabletest,"itdoesmatter");
   printletter(tabletest,'a');
 
   printf("-------------------------------\n");

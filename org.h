@@ -22,7 +22,7 @@ int tonum(char letter){
 }
 
 //Print out all the entries under a certain letter.
-void printletter(struct song * * table, char letter) {
+void printletter(struct song * table[27], char letter) {
   struct song * s = table[tonum(letter)];
   print_song_list(s);
 }
@@ -68,7 +68,7 @@ struct song * search_song(struct song * table[27], char *song, char *artist){
   struct song * songpoint = find_song(tempnode, song,artist);
   if(songpoint){
     printf("song found! %s : %s \n",song,artist);
-    return songpoint;
+    //return songpoint;
   }
   else{printf("song not found\n");}
 }
@@ -87,38 +87,45 @@ struct song * search_artist(struct song * table[27], char artist[]){
 }
 
 //Shuffle - print out a series of randomly chosen songs.
+void shufflehelp(struct song * table[27]){
+  int randnum = rand()%27;
+  if(!table[randnum]){
+    shufflehelp(table);
+  }
+  else{
+    struct song * randsong = random_song(table[randnum]);
+    printf("%s : %s \n",randsong -> artist, randsong ->name);
+  }
+}
 void shuffle(struct song * table[27]){
   int i = 0;
-  printf("no \n");
   for(;i < 5;i++){
-    printf("CHOOSING SONG...\n" );
-    struct song * randsong = random_song(table[rand()%27]);
-    printf("%s : %s \n",randsong -> artist, randsong ->name);
-
+    shufflehelp(table);
   }
 }
 
 //Delete a song
-struct song * deletesong(struct song * table[27], char song[]){
+struct song * * deletesong(struct song * table[27], char * song){
   struct song * tempnode = table[tonum(song[0])];
-  struct song * songpoint = find_song(tempnode, song, tempnode -> artist);
+  printf("%c",song[0]);
+  char * tempartist = tempnode -> artist;
+  struct song * songpoint = find_song(tempnode, song, tempartist);
   tempnode = remove_song(tempnode, songpoint);
   table[tonum(song[0])] = tempnode;
-  return table[tonum(song[0])];
+  return table;
 }
 
 //Clear the library.
 void clearlib(struct song * table[27]){
   int i = 0;
   for(i = 0;i < 27; i++){
-    struct song * tempnode = table[i];
-    if(tempnode){
-      printf("freeing node %s : %s \n",tempnode -> artist, tempnode -> name);
+    struct song * tempnode2 = table[i];
+    if(tempnode2){
+      printf("freeing node %s : %s \n",tempnode2 -> artist, tempnode2 -> name);
     }
   }
   for(i = 0;i < 27; i++){
     struct song * tempnode = table[i];
     tempnode = free_song_list(tempnode);
   }
-
 }
