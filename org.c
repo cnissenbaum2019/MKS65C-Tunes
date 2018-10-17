@@ -15,8 +15,8 @@ int main(){
 
   tabletest[0] = &s0;
   s0.next = NULL;
-  s0.artist = "Arm";
-  s0.name = "Z";
+  s0.artist = "Astro";
+  s0.name = "Who";
 
   tabletest[1] = &s1;
   s1.next = NULL;
@@ -33,8 +33,8 @@ int main(){
   s4.artist = "Eat";
   s4.name = "me";
 
+  printf("--------------------------------------------\n");
 
-  printf("-------------------------------\n");
   //WORKS
   printf("TEST PRINTLETTER\n");
   printletter(tabletest,'A');
@@ -46,7 +46,7 @@ int main(){
   printf("-------------------------------\n");
   //WORKS
   printf("TEST PRINT ARTIST LIBRARY\n");
-  printartistlibrary(tabletest, "Arm");
+  printartistlibrary(tabletest, "Astro");
   //printartistlibrary(tabletest, "dese");
   printartistlibrary(tabletest, "Eat");
 
@@ -59,8 +59,8 @@ int main(){
   //WORKS
   printf("TEST ADD SONG\n");
   s3.next = NULL;
-  s3.artist = "adese";
-  s3.name = "tho";
+  s3.artist = "antimatter";
+  s3.name = "itdoesmatter";
   struct song * newsongs = add_song(tabletest,s3);
   struct song s5;
   struct song s6;
@@ -89,20 +89,22 @@ int main(){
   //WOKS WHEN SMALL SAMPLE SIZE
   printf("TEST SHUFFLE\n");
   srand(time(0));
-  shuffle(tabletest);
+  //shuffle(tabletest);
 
   printf("-------------------------------\n");
   //REPLACES INSTEAD OF DELETES
   printf("TEST DELETE SONG\n");
-  struct song * onelesssong = deletesong(tabletest,s1);
-  //printlibrary(tabletest);
+  printletter(tabletest,'a');
+  struct song * onelesssong = deletesong(tabletest,"tho");
+  printletter(tabletest,'a');
 
   printf("-------------------------------\n");
   //WORKS
   printf("TEST CLEAR LIBRARY\n");
   //clearlib(tabletest);
   //printlibrary(tabletest);
-  printf("-------------------------------\n");
+
+  printf("--------------------------------------------\n");
 
   return 0;
 }
