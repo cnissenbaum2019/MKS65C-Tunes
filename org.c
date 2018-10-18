@@ -21,7 +21,7 @@ int main(){
   tabletest[1] = &s1;
   s1.next = NULL;
   s1.artist = "Bas";
-  s1.name = "what";
+  s1.name = "What";
 
   tabletest[2] = &s2;
   s2.next = NULL;
@@ -95,15 +95,14 @@ int main(){
   //NAH
   printf("TEST DELETE SONG\n");
   printletter(tabletest,'a');
-  //tabletest = deletesong(tabletest,"itdoesmatter");
+  //tabletest = deletesong(tabletest,"itdoesmatter","antimatter");
   printletter(tabletest,'a');
 
   printf("-------------------------------\n");
   //WORKS JK LOL
   printf("TEST CLEAR LIBRARY\n");
-  //printlibrary(tabletest);
   printlibrary(tabletest);
-  tabletest = clearlib(tabletest);
+  //tabletest = clearlib(tabletest);
   printlibrary(tabletest);
 
   printf("--------------------------------------------\n");
