@@ -78,7 +78,7 @@ int main(){
   //RETURNS ACTUAL POINTER SO WORKS I GUESS
   printf("TEST SEARCH SONG\n");
   struct song * searchfor = search_song(tabletest,"me","Eat");
-  printf("%s\n",searchfor);
+  //printf("%s\n",searchfor);
 
   printf("-------------------------------\n");
   //WORKS
@@ -86,7 +86,7 @@ int main(){
   struct song * searchforA = search_artist(tabletest,"Bas");
 
   printf("-------------------------------\n");
-  //NAH
+  //WORKS
   printf("TEST SHUFFLE\n");
   srand(time(0));
   shuffle(tabletest);
@@ -102,8 +102,9 @@ int main(){
   //WORKS JK LOL
   printf("TEST CLEAR LIBRARY\n");
   //printlibrary(tabletest);
-  ///clearlib(tabletest);
-  //printlibrary(tabletest);
+  printlibrary(tabletest);
+  tabletest = clearlib(tabletest);
+  printlibrary(tabletest);
 
   printf("--------------------------------------------\n");
 

@@ -13,7 +13,8 @@ struct song * * create_library() {
 int tonum(char letter){
   char upper[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   char lower[] = "abcdefghijklmnopqrstuvwxyz";
-  for(int i = 0;i < 27;i++){
+  int i = 0;
+  for(;i < 27;i++){
     if(upper[i] == letter || lower[i] == letter){
       return i;
     }
@@ -46,7 +47,7 @@ void printartistlibrary(struct song * table[27], char artist[]){
 void printlibrary(struct song * table[27]){
   int i = 0;
   char lower[] = "abcdefghijklmnopqrstuvwxyz";
-  for(i = 0;i < 27;i++){
+  for(;i < 27;i++){
     printletter(table,lower[i]);
   }
 }
@@ -68,7 +69,7 @@ struct song * search_song(struct song * table[27], char *song, char *artist){
   struct song * songpoint = find_song(tempnode, song,artist);
   if(songpoint){
     printf("song found! %s : %s \n",song,artist);
-    //return songpoint;
+    return songpoint;
   }
   else{printf("song not found\n");}
 }
@@ -85,6 +86,7 @@ struct song * search_artist(struct song * table[27], char artist[]){
   }
   else{printf("artist not found\n");}
 }
+
 
 //Shuffle - print out a series of randomly chosen songs.
 void shufflehelp(struct song * table[27]){
@@ -104,10 +106,11 @@ void shuffle(struct song * table[27]){
   }
 }
 
+
 //Delete a song
 struct song * * deletesong(struct song * table[27], char * song){
   struct song * tempnode = table[tonum(song[0])];
-  printf("%c",song[0]);
+  printf("%c \n",song[0]);
   char * tempartist = tempnode -> artist;
   struct song * songpoint = find_song(tempnode, song, tempartist);
   tempnode = remove_song(tempnode, songpoint);
@@ -115,17 +118,22 @@ struct song * * deletesong(struct song * table[27], char * song){
   return table;
 }
 
+
 //Clear the library.
-void clearlib(struct song * table[27]){
+struct song * * clearlib(struct song * table[27]){
   int i = 0;
-  for(i = 0;i < 27; i++){
+  for(;i < 27; i++){
     struct song * tempnode2 = table[i];
     if(tempnode2){
       printf("freeing node %s : %s \n",tempnode2 -> artist, tempnode2 -> name);
     }
   }
-  for(i = 0;i < 27; i++){
+  int c = 0;
+  for(;c < 27; c++){
     struct song * tempnode = table[i];
-    tempnode = free_song_list(tempnode);
+    if(tempnode){
+      tempnode = free_song_list(tempnode);
+    }
   }
+
 }
