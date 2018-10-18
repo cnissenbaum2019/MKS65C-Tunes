@@ -80,7 +80,7 @@ struct song * insert_in_order(struct song * s,
 void print_song_list(struct song * s) {
   if(s) {
     char * tempartist = s -> artist;
-	   printf("%c list\n",tempartist[0]);
+	   //printf("%c list\n",tempartist[0]);
 	    while (s) {
 		      printf("%s: %s |", s->artist, s->name );
 		      s = s->next;
@@ -95,7 +95,7 @@ struct song * find_song(struct song * s, char * songname, char * artistname) {
 
 	while(s) {
 		if (strcmp(s->artist, artistname) == 0 &&
-			strcmp(s->name,     songname) == 0) return s;
+			strcmp(s->name,     songname) == 0)return s;
 		s = s->next;
 
 	}
@@ -168,6 +168,7 @@ struct song * free_song_list(struct song * s) {
 
 	while (s) {
 		placeholder = s->next;
+		printf("free->%s->%p\n", s->name, s->next );
 		free(s);
 		s = placeholder;
 	}
