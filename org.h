@@ -7,8 +7,20 @@
 struct song  *  table[27];
 
 struct song * * create_library() {
+<<<<<<< HEAD
   return malloc(sizeof(struct song *) * 27);
 
+=======
+  return calloc(sizeof(struct song *), 27);
+  struct song garbage;
+  int i = 27;
+  for(;;i--){
+    table[i] = &garbage;
+    garbage.next = NULL;
+    garbage.artist = NULL;
+    garbage.name = NULL;
+  }
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
 }
 
 int tonum(char letter){
@@ -97,19 +109,33 @@ void shuffle(struct song * table[27]){
 
 
 //Delete a song
+<<<<<<< HEAD
 struct song * * delete_song(struct song * table[27], char * songname, char * artname) {
   int i = tonum(artname[0]);
 
   table[i] = remove_song(table[i], find_song(table[i],songname,artname));
 
+=======
+struct song * * deletesong(struct song * table[27], char * song,char *artist){
+  struct song * tempnode = table[tonum(song[0])];
+  printf("%c \n",song[0]);
+
+  struct song * songpoint = find_song(tempnode, song, artist);
+  tempnode = remove_song(tempnode, songpoint);
+  table[tonum(song[0])] = tempnode;
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
   return table;
 
   
 }
 
 //Clear the library.
+<<<<<<< HEAD
 struct song * * clear_library(struct song * table[27]){
 
+=======
+struct song * * clearlib(struct song * * table){
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
   int i = 0;
 
   while(i-27) {

@@ -12,6 +12,28 @@ int main(){
   add_song(tabletest,"Cat","why");
   add_song(tabletest,"Eat","me");
 
+<<<<<<< HEAD
+=======
+  tabletest[0] = &s0;
+  s0.next = NULL;
+  s0.artist = "Astro";
+  s0.name = "Who";
+
+  tabletest[1] = &s1;
+  s1.next = NULL;
+  s1.artist = "Bas";
+  s1.name = "What";
+
+  tabletest[2] = &s2;
+  s2.next = NULL;
+  s2.artist = "Cat";
+  s2.name = "why";
+
+  tabletest[4] = &s4;
+  s4.next = NULL;
+  s4.artist = "Eat";
+  s4.name = "me";
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
 
   printf("--------------------------------------------\n");
 
@@ -65,16 +87,25 @@ int main(){
   printf("-------------------------------\n");
   //NAH
   printf("TEST DELETE SONG\n");
+<<<<<<< HEAD
   printletter(tabletest,'b');
   tabletest = delete_song(tabletest,"Two","Bas");
   printletter(tabletest,'b');
+=======
+  printletter(tabletest,'a');
+  //tabletest = deletesong(tabletest,"itdoesmatter","antimatter");
+  printletter(tabletest,'a');
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
 
   printf("-------------------------------\n");
   //WORKS JK LOL
   printf("TEST CLEAR LIBRARY\n");
-  //printlibrary(tabletest);
   printlibrary(tabletest);
+<<<<<<< HEAD
   tabletest = clear_library(tabletest);
+=======
+  //tabletest = clearlib(tabletest);
+>>>>>>> be344d64c7b7f9d52fe411681ac3a53a0d0e9517
   printlibrary(tabletest);
 
   printf("--------------------------------------------\n");
